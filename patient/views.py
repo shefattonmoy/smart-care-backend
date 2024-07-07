@@ -40,7 +40,7 @@ class UserRegistrationApiView(APIView):
 def activate(request, uid64, token):
     try:
         uid = urlsafe_base64_decode(uid64).decode()
-        user = User.default_manager.get(pk = uid)
+        user = User._default_manager.get(pk = uid)
     except(User.DoesNotExist):
         user = None
     
